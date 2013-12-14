@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1000]C:\SIGMA\ESTUDOS\Exemplos\Calculadora\Calculadora\Calculadora.nunit</TopNode>
+  <SelectedNode>[0-1013]Calculadora.Testes.TestTokenizer.TesteTokenize</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1000]C:\SIGMA\ESTUDOS\Exemplos\Calculadora\Calculadora\Calculadora.nunit" Expanded="true" />
+    <Node UniqueName="[0-1017]C:\SIGMA\ESTUDOS\Exemplos\Calculadora\Calculadora\bin\Debug\Calculadora.exe" Expanded="true" />
+    <Node UniqueName="[0-1018]Calculadora" Expanded="true" />
+    <Node UniqueName="[0-1019]Calculadora.Testes" Expanded="true" />
+    <Node UniqueName="[0-1001]Calculadora.Testes.TesteExpressao" Expanded="true" />
+    <Node UniqueName="[0-1014]Calculadora.Testes.TesteParser" Expanded="true" />
+    <Node UniqueName="[0-1011]Calculadora.Testes.TestTokenizer" Expanded="true" />
+  </Nodes>
+</VisualState>
