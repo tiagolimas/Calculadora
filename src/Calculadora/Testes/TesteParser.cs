@@ -33,7 +33,7 @@ namespace Calculadora.Testes
         {
             var t = new Tokenizer();
             var tokens = t.Tokenize("(2+3*5+10)");
-            Assert.AreEqual("3", tokens);
+            Assert.AreEqual("27", tokens);
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace Calculadora.Testes
         {
             var t = new Tokenizer();
             var tokens = t.Tokenize("3+(2+3*5+10)"); 
-            Assert.AreEqual("3", tokens);
+            Assert.AreEqual("30", tokens);
         }
 
 
@@ -50,7 +50,7 @@ namespace Calculadora.Testes
         {
             var t = new Tokenizer();
             var tokens = t.Tokenize("15+7+(12+13)");            //OK
-            Assert.AreEqual("3", tokens);
+            Assert.AreEqual("47", tokens);
         }
 
         [Test]
@@ -58,7 +58,7 @@ namespace Calculadora.Testes
         {
             var t = new Tokenizer();
             var tokens = t.Tokenize("10+(3+(2+3*5+10)+20)");    //OK
-            Assert.AreEqual("3", tokens);
+            Assert.AreEqual("60", tokens);
         }
 
         [Test]
@@ -66,7 +66,7 @@ namespace Calculadora.Testes
         {
             var t = new Tokenizer();
             var tokens = t.Tokenize("10+(3+(2+3*5+10)+20)");    //OK
-            Assert.AreEqual("3", tokens);
+            Assert.AreEqual("60", tokens);
         }
 
         [Test]
@@ -74,7 +74,7 @@ namespace Calculadora.Testes
         {
             var t = new Tokenizer();
             var tokens = t.Tokenize("15+7+(12-13)");            //OK
-            Assert.AreEqual("3", tokens);
+            Assert.AreEqual("21", tokens);
         }
 
 
@@ -83,7 +83,7 @@ namespace Calculadora.Testes
         {
             var t = new Tokenizer();
             var tokens = t.Tokenize("10+(3+(2+3*5+10)-20)");    //OK
-            Assert.AreEqual("3", tokens);
+            Assert.AreEqual("20", tokens);
         }
 
         [Test]
@@ -91,7 +91,7 @@ namespace Calculadora.Testes
         {
             var t = new Tokenizer();
             var tokens = t.Tokenize("10+(3+(-2+3*5+10)-20)");   //OK
-            Assert.AreEqual("3", tokens);
+            Assert.AreEqual("16", tokens);
         }
 
         [Test]
@@ -99,7 +99,7 @@ namespace Calculadora.Testes
         {
             var t = new Tokenizer();
             var tokens = t.Tokenize("10+(-3+(-2+3*5+10)-20)");  //OK
-            Assert.AreEqual("3", tokens);
+            Assert.AreEqual("10", tokens);
         }
 
         [Test]
@@ -107,7 +107,7 @@ namespace Calculadora.Testes
         {
             var t = new Tokenizer();
             var tokens = t.Tokenize("-10+(-3+(-2+3*5+10)-20)"); //OK
-            Assert.AreEqual("3", tokens);
+            Assert.AreEqual("-10", tokens);
         }
 
         [Test]
@@ -115,7 +115,7 @@ namespace Calculadora.Testes
         {
             var t = new Tokenizer();
             var tokens = t.Tokenize("-10+(-3+(-2+3*5+10)*20)"); //OK
-            Assert.AreEqual("3", tokens);
+            Assert.AreEqual("447", tokens);
         }
 
         [Test]
@@ -124,6 +124,22 @@ namespace Calculadora.Testes
             var t = new Tokenizer();
             var tokens = t.Tokenize("1371/(-3+(-2+3*5+10)*20)");//OK
             Assert.AreEqual("3", tokens);
+        }
+
+        [Test]
+        public void TesteTokenize13()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("1+(-3+(2+3*5+10)*2000)");
+            Assert.AreEqual("53998", tokens);
+        }
+
+        [Test]
+        public void TesteTokenize14()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("2+2");
+            Assert.AreEqual("4", tokens);
         }
 
         //[Test]

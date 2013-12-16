@@ -110,6 +110,10 @@ namespace Calculadora.Expressoes
             else
             {
                 expInterna = ResolveSomaSubtracao(expInterna);
+                if (expInterna == string.Empty)
+                {
+                    expInterna = ResolveSomaSubtracao(expressao);
+                }
             }
 
             return expInterna;
