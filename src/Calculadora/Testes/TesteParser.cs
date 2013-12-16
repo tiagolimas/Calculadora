@@ -21,15 +21,109 @@ namespace Calculadora.Testes
         public void TesteTokenize()
         {
             var t = new Tokenizer();
-            var tokens = t.Tokenize("(2+3*5)");
-
-            Assert.AreEqual("17", tokens);
+            var tokens = t.Tokenize("1371/(-3+(-2+3*5+10)*20)");
+            Assert.AreEqual("3", tokens);
 
             //Assert.AreEqual(4, tokens.Count);
             //Assert.AreEqual("a", tokens[0]);
-            //Assert.AreEqual("b", tokens[1]);
-            //Assert.AreEqual("c", tokens[2]);
-            //Assert.AreEqual("d", tokens[3]);
+        }
+
+        [Test]
+        public void TesteTokenize1()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("(2+3*5+10)");
+            Assert.AreEqual("3", tokens);
+        }
+
+        [Test]
+        public void TesteTokenize2()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("3+(2+3*5+10)"); 
+            Assert.AreEqual("3", tokens);
+        }
+
+
+        [Test]
+        public void TesteTokenize3()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("15+7+(12+13)");            //OK
+            Assert.AreEqual("3", tokens);
+        }
+
+        [Test]
+        public void TesteTokenize4()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("10+(3+(2+3*5+10)+20)");    //OK
+            Assert.AreEqual("3", tokens);
+        }
+
+        [Test]
+        public void TesteTokenize5()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("10+(3+(2+3*5+10)+20)");    //OK
+            Assert.AreEqual("3", tokens);
+        }
+
+        [Test]
+        public void TesteTokenize6()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("15+7+(12-13)");            //OK
+            Assert.AreEqual("3", tokens);
+        }
+
+
+        [Test]
+        public void TesteTokenize7()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("10+(3+(2+3*5+10)-20)");    //OK
+            Assert.AreEqual("3", tokens);
+        }
+
+        [Test]
+        public void TesteTokenize8()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("10+(3+(-2+3*5+10)-20)");   //OK
+            Assert.AreEqual("3", tokens);
+        }
+
+        [Test]
+        public void TesteTokenize9()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("10+(-3+(-2+3*5+10)-20)");  //OK
+            Assert.AreEqual("3", tokens);
+        }
+
+        [Test]
+        public void TesteTokenize10()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("-10+(-3+(-2+3*5+10)-20)"); //OK
+            Assert.AreEqual("3", tokens);
+        }
+
+        [Test]
+        public void TesteTokenize11()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("-10+(-3+(-2+3*5+10)*20)"); //OK
+            Assert.AreEqual("3", tokens);
+        }
+
+        [Test]
+        public void TesteTokenize12()
+        {
+            var t = new Tokenizer();
+            var tokens = t.Tokenize("1371/(-3+(-2+3*5+10)*20)");//OK
+            Assert.AreEqual("3", tokens);
         }
 
         //[Test]

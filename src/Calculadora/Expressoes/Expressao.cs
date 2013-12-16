@@ -112,10 +112,3 @@ namespace Calculadora.Expressoes
         }
     }
 }
-
-
-//Clear()
-//Peek() -> Retorna o item do topo sem apagá-lo
-//Push(Objeto) -> Adiciona no topo
-//Pop() -> Pega e retira do topo da pilha
-//count
